@@ -21,6 +21,10 @@ class Resources {
 		}
 	}
 
+	/**
+	 * Se inicializan todos los parametros
+	 * @param array $params Contiene los parametros enviados por el usuario
+	 */
 	function initialize($params = array()) {
 		$CI = & get_instance();
 		$CI->load->helper('url');
@@ -31,25 +35,34 @@ class Resources {
 		}
 	}
 
-	//Metodo para cargar hojas de estilo CSS
+	/**
+	 * Metodo para cargar las hojas de estilos CSS
+	 * @return string Etiquetas HTML con las hojas de estilos
+	 */
 	function css() {
-		$content = null;
+		$content = NULL;
 		foreach ($this->css as $item) {
 			$content .= '<link href="' . base_url() . $this->css_path . $item . '.css" rel="stylesheet">';
 		}
 		return $content;
 	}
 
-	//Metodo para cargar scripts JS
+	/**
+	 * Metodo para cargar los scripts JS
+	 * @return string Etiquetas HTML con las archivos JS
+	 */
 	function js() {
-		$content = null;
+		$content = NULL;
 		foreach ($this->js as $item) {
 			$content .= '<script src="' . base_url() . $this->js_path . $item . '.js"></script>';
 		}
 		return $content;
 	}
 
-	//Metodo para cargar funciones JS
+	/**
+	 * Metodo para incluir metodos JS dentro de vistas
+	 * @return string Metodo JS
+	 */
 	function functions() {
 		if (!empty($this->functions)) {
 			$content = '<script>$(function() {';
