@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Resources Library v1.0
+ * Resources Library v1.0.1
  * Librería creada por Eborio Linarez
  * Autocarga de hojas de estilos CSS y scripts JS y funciones jQuery
  * Fecha de Creacion: 06/07/2013
@@ -28,6 +28,7 @@ class Resources {
 	function initialize($params = array()) {
 		$CI = & get_instance();
 		$CI->load->helper('url');
+		$CI->load->helper('html');
 		foreach ($params as $key => $val) {
 			if (isset($this->$key)) {
 				$this->$key = $val;
@@ -42,7 +43,7 @@ class Resources {
 	function css() {
 		$content = NULL;
 		foreach ($this->css as $item) {
-			$content .= '<link href="' . base_url() . $this->css_path . $item . '.css" rel="stylesheet">';
+			$content .= link_tag($this->css_path . $item . '.css');
 		}
 		return $content;
 	}
