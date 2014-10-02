@@ -12,9 +12,9 @@
 </ul>
 <h2>Configuración</h2>
 <ul>
-	<li>Agregar el llamado a <code>$this->resources->css();</code> dentro de la etiqueta <code>HEAD</code>.</li>
-	<li>Agregar el llamado a <code>$this->resources->js();</code> antes del cierre de la eiqueta <code>BODY</code> (Recomendado para mejorar la carga del sitio web aunque también se puede agregar dentro de <code>HEAD</code>).</li>
-	<li>Agregar el llamado a <code>$this->resources->functions();</code> luego del llamado a <code>$this->resources->js();</code>.</li>
+	<li>Agregar el llamado a <code>$this->resources->css();</code> dentro de la etiqueta <code>&lt;head&gt;</code>.</li>
+	<li>Agregar el llamado a <code>$this->resources->js();</code> antes del cierre de la eiqueta <code>&lt;body&gt;</code> (Recomendado para mejorar la carga del sitio web aunque también se puede agregar dentro de <code>&lt;head&gt;</code>).</li>
+	<li><b>Opcional - </b>Agregar el llamado a <code>$this->resources->functions();</code> luego del llamado a <code>$this->resources->js();</code>.</li>
 </ul>
 <p>
 	<b>NOTA IMPORTANTE: </b> Aunque la librería dispone de un método para cargar métodos jQuery mediante <code>$this->resources->functions();</code> no es recomendable utilizarla para garantizar el fácil mantenimiento del código. Se recomienda en su lugar crear archivos <code>.js</code> con tales métodos para luego cargarlos a la vista.
