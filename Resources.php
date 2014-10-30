@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Resources Library v1.0.1
+ * Resources Library v1.1.0
  * Librería creada por Eborio Linarez
  * Autocarga de hojas de estilos CSS y scripts JS y funciones jQuery
  * Fecha de Creacion: 06/07/2013
@@ -9,11 +9,11 @@
 
 class Resources {
 
-	public $css_path = 'assets/css/';
-	public $js_path = 'assets/js/';
-	public $css = array();
-	public $js = array();
-	public $functions = array();
+	var $css_path = 'assets/css/';
+	var $js_path = 'assets/js/';
+	var $css = array();
+	var $js = array();
+	var $functions = array();
 
 	function __construct($params = array()) {
 		if (count($params) > 0) {
@@ -42,8 +42,16 @@ class Resources {
 	 */
 	function css() {
 		$content = NULL;
-		foreach ($this->css as $item) {
-			$content .= link_tag($this->css_path . $item . '.css');
+		foreach ($this->css as $key => $val) {
+			// Se verifica que $key no sea entero
+			// Si no es entero es un arreglo asociativo
+			// Si es entero es un arreglo unidimensional
+			if(!is_int($key)) {
+				$content .= link_tag($val . $key . '.css');
+			}
+			else {
+				$content .= link_tag($this->css_path . $val . '.css');
+			}
 		}
 		return $content;
 	}
@@ -54,8 +62,16 @@ class Resources {
 	 */
 	function js() {
 		$content = NULL;
-		foreach ($this->js as $item) {
-			$content .= '<script src="' . base_url() . $this->js_path . $item . '.js"></script>';
+		foreach ($this->js as $key => $val) {
+			// Se verifica que $key no sea entero
+			// Si no es entero es un arreglo asociativo
+			// Si es entero es un arreglo unidimensional
+			if(!is_int($key)) {
+				$content .= '<script src="' . base_url() . $val . $key . '.js"></script>';
+			}
+			else {
+				$content .= '<script src="' . base_url() . $this->js_path . $val . '.js"></script>';
+			}
 		}
 		return $content;
 	}
