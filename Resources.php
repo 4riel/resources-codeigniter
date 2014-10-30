@@ -9,11 +9,11 @@
 
 class Resources {
 
-	public $css_path = 'assets/css/';
-	public $js_path = 'assets/js/';
-	public $css = array();
-	public $js = array();
-	public $functions = array();
+	var $css_path = 'assets/css/';
+	var $js_path = 'assets/js/';
+	var $css = array();
+	var $js = array();
+	var $functions = array();
 
 	function __construct($params = array()) {
 		if (count($params) > 0) {
