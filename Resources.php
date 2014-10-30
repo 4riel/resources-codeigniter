@@ -42,8 +42,16 @@ class Resources {
 	 */
 	function css() {
 		$content = NULL;
-		foreach ($this->css as $item) {
-			$content .= link_tag($this->css_path . $item . '.css');
+		foreach ($this->css as $key => $val) {
+			// Se verifica que $key no sea entero
+			// Si no es entero es un arreglo asociativo
+			// Si es entero es un arreglo unidimensional
+			if(!is_int($key)) {
+				$content .= link_tag($val . $key . '.css');
+			}
+			else {
+				$content .= link_tag($this->css_path . $val . '.css');
+			}
 		}
 		return $content;
 	}
