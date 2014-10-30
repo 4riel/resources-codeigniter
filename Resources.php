@@ -62,8 +62,16 @@ class Resources {
 	 */
 	function js() {
 		$content = NULL;
-		foreach ($this->js as $item) {
-			$content .= '<script src="' . base_url() . $this->js_path . $item . '.js"></script>';
+		foreach ($this->js as $key => $val) {
+			// Se verifica que $key no sea entero
+			// Si no es entero es un arreglo asociativo
+			// Si es entero es un arreglo unidimensional
+			if(!is_int($key)) {
+				$content .= '<script src="' . base_url() . $val . $key . '.js"></script>';
+			}
+			else {
+				$content .= '<script src="' . base_url() . $this->js_path . $val . '.js"></script>';
+			}
 		}
 		return $content;
 	}
