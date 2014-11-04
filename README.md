@@ -75,6 +75,26 @@ $this->resources->initialize($config);</code>
 &lt;link href=&quot;http://sitioweb.com/path/template/template.css&quot; rel=&quot;stylesheet&quot;&gt;
 &lt;link href=&quot;http://sitioweb.com/path/default/default.css&quot; rel=&quot;stylesheet&quot;&gt;</code>
 </pre>
+<h3>Cargar hojas de estilo CSS desde URL's absolutas o desde CDN</h3>
+<p>
+	Para incluir archivos CSS desde una url asoluta o desde un CDN basta con indicarlo de la siguiente manera:
+</p>
+<pre><code>
+$config['css'] = array('http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css');
+$this->resources->initialize($config);</code>
+</pre>
+<p>
+	En la vista observaríamos lo siguiente
+</p>
+<pre><code>
+&lt;link href=&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;</code>
+</pre>
+<p>
+	<b>IMPORTANTE: </b>Se debe incluir la extensión del archivo.
+</p>
+<p>
+	<b>NOTA SOBRE CDN'S: </b>Algunos servicios de CDN poseen direcciones que comienzan por <code>//</code> como en el caso de Bootstrap, cuya dirección de CDN es <code>//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css</code>, en esos casos debemos agregar el <code>http:</code> o <code>https:</code> al indicar la ruta en el arreglo de configuración de la librería. En futuras versiones esto no será necesario.
+</p>
 <h3>Cargar archivos JavaScript</h3>
 <p>
 	Para cargar scripts se usa el mismo procedimiento utilizado para cargar CSS, solo se debe especificar de manera diferente el arreglo de configuración:
@@ -111,6 +131,26 @@ $this->resources->initialize($config);</code>
 &lt;script src=&quot;http://sitioweb.com/path/jquery/jquery.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;http://sitioweb.com/path/functions/functions.js&quot;&gt;&lt;/script&gt;</code>
 </pre>
+<h3>Cargar archivos JS desde URL's absolutas o desde CDN</h3>
+<p>
+	Para incluir archivos JS desde una url asoluta o desde un CDN demebos indicarlo de la siguiente manera:
+</p>
+<pre><code>
+$config['js'] = array('http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js');
+$this->resources->initialize($config);</code>
+</pre>
+<p>
+	En la vista observaríamos lo siguiente
+</p>
+<pre><code>
+&lt;script src=&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;</code>
+</pre>
+<p>
+	<b>IMPORTANTE: </b>Se debe incluir la extensión del archivo.
+</p>
+<p>
+	<b>NOTA SOBRE CDN'S: </b>Algunos servicios de CDN poseen direcciones que comienzan por <code>//</code> como en el caso de Bootstrap, cuya dirección de CDN es <code>//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js</code>, en esos casos debemos agregar el <code>http:</code> o <code>https:</code> al indicar la ruta en el arreglo de configuración de la librería. En futuras versiones esto no será necesario.
+</p>
 <h3>Cargar métodos jQuery (NO RECOMENDADO)</h3>
 <p>
 	Para cargar métodos jQuery en una vista se debe especificar la configuación de la siguiente manera:
