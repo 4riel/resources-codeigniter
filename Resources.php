@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Resources Library v1.1.0
+ * Resources Library v1.2.0
  * Librería creada por Eborio Linarez
  * Autocarga de hojas de estilos CSS y scripts JS y funciones jQuery
  * Fecha de Creacion: 06/07/2013
