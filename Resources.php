@@ -50,7 +50,13 @@ class Resources {
 				$content .= link_tag($val . $key . '.css');
 			}
 			else {
-				$content .= link_tag($this->css_path . $val . '.css');
+				// Se verifica si el valor enviado es una URL correcta
+				if(filter_var($val, FILTER_VALIDATE_URL)) {
+					$content .= link_tag($val);
+				}
+				else {
+					$content .= link_tag($this->css_path . $val . '.css');
+				}
 			}
 		}
 		return $content;
@@ -70,7 +76,13 @@ class Resources {
 				$content .= '<script src="' . base_url() . $val . $key . '.js"></script>';
 			}
 			else {
-				$content .= '<script src="' . base_url() . $this->js_path . $val . '.js"></script>';
+				// Se verifica si el valor enviado es una URL correcta
+				if(filter_var($val, FILTER_VALIDATE_URL)) {
+					$content .= '<script src="' . $val . '"></script>';
+				}
+				else {
+					$content .= '<script src="' . base_url() . $this->js_path . $val . '.js"></script>';
+				}
 			}
 		}
 		return $content;
