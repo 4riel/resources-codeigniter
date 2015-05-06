@@ -34,6 +34,7 @@ class Resources {
 				$this->$key = $val;
 			}
 		}
+		$this->add_defaultresources();
 	}
 
 	/**
@@ -101,5 +102,20 @@ class Resources {
 			$content .= '});</script>';
 			return $content;
 		}
+	}
+
+	/**
+	 * Metodo para establecer recursos de manera predeterminada
+	 * Recursos que se necesitaran en todas las vistas como puede ser bootstrap, jquery, etc.
+	 */
+	private function add_defaultresources(){
+		array_unshift($this->css,
+			'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'
+		);
+
+		array_unshift($this->js,
+		'https://code.jquery.com/jquery-2.1.4.min.js',
+		'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'
+		);
 	}
 }
